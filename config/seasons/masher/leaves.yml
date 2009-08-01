@@ -1,0 +1,3 @@
+Bugmash:
+  class: Bugmash
+  respond_to_private_messages: true

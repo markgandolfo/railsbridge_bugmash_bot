@@ -1,0 +1,6 @@
+bug_masher: 
+  username: root
+  adapter: mysql
+  host: localhost
+  database: bug_masher
+  password: 

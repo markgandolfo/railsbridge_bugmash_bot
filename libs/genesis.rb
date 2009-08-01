@@ -134,13 +134,14 @@ module Autumn # :nodoc:
         return
       end
       
-      gem 'addressable', '2.0.2'
-      require 'dm-core'
-      require 'libs/datamapper_hacks'
+      gem 'addressable', '2.1.0'
+      require 'activerecord'
+      # require 'libs/datamapper_hacks'
       
       dbconfig = YAML.load(File.open(db_file, 'r'))
       dbconfig.rekey(&:to_sym).each do |db, config|
-        DataMapper.setup(db, config.kind_of?(Hash) ? config.rekey(&:to_sym) : config)
+        ActiveRecord::Base.establish_connection(config)
+      #setup(db, config.kind_of?(Hash) ? config.rekey(&:to_sym) : config)
       end
     end
     

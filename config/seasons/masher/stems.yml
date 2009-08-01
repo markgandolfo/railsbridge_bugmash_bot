@@ -1,0 +1,8 @@
+--- 
+Example: 
+  nick: masher
+  leaves: 
+  - Bugmash
+  rejoin: true
+  channel: "#testingchannel"
+  server: irc.freenode.org

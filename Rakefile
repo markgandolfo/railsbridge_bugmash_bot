@@ -1,5 +1,9 @@
 require 'rake'
 require 'libs/genesis'
+require 'activerecord'
+
+ActiveRecord::Base.schema_format = :ruby
+ActiveRecord::Base.logger = Logger.new(nil)
 
 task :default do
   puts 'Type "rake --tasks" to see a list of tasks you can perform.'
@@ -77,16 +81,45 @@ end
 
 namespace :db do
   desc "Recreate database tables according to the model objects"
-  task :migrate => :boot do
-    dname = ENV['DB']
-    raise "Usage: DB=[Database config name] rake db:migrate" unless dname
-    raise "Unknown database config #{dname}" unless database = repository(dname.to_sym)
-    puts "Migrating the #{dname} database..."
-    # Find models that have definitions for the selected database and migrate them
-    repository(dname.to_sym) do
-      repository(dname.to_sym).models.each { |mod| mod.auto_migrate! dname.to_sym }
+  
+  desc "Migrate the database through scripts in db/migrate and update db/schema.rb by invoking db:schema:dump. Target specific version with VERSION=x. Turn off output with VERBOSE=false."
+  task :migrate => :setup do    
+    ActiveRecord::Migration.verbose = ENV["VERBOSE"] ? ENV["VERBOSE"] == "true" : true
+    ActiveRecord::Migrator.migrate(File.join(File.dirname(__FILE__),"db/migrate/"), ENV["VERSION"] ? ENV["VERSION"].to_i : nil)
+    Rake::Task["db:schema:dump"].invoke if ActiveRecord::Base.schema_format == :ruby
+  end
+  
+  namespace :schema do
+    desc "Create a db/schema.rb file that can be portably used against any DB supported by AR"
+    task :dump  => :setup do
+      require 'active_record/schema_dumper'
+      File.open(ENV['SCHEMA'] || File.join(File.dirname(__FILE__), "db/schema.rb"), "w") do |file|
+        ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, file)
+      end
+      Rake::Task["db:schema:dump"].reenable
+    end
+  end  
+  
+  task :setup do
+    db_file = File.join(File.dirname(__FILE__), "config/seasons/masher/database.yml")
+
+    dbconfig = YAML.load(File.open(db_file, 'r'))
+    dbconfig.rekey(&:to_sym).each do |db, config|
+      ActiveRecord::Base.establish_connection(config)
+    #setup(db, config.kind_of?(Hash) ? config.rekey(&:to_sym) : config)
     end
   end
+  
+  # task :migrate => :boot do
+  #   dname = ENV['DB']
+  #   raise "Usage: DB=[Database config name] rake db:migrate" unless dname
+  #   raise "Unknown database config #{dname}" unless database = repository(dname.to_sym)
+  #   puts "Migrating the #{dname} database..."
+  #   # Find models that have definitions for the selected database and migrate them
+  #   repository(dname.to_sym) do
+  #     repository(dname.to_sym).models.each { |mod| mod.auto_migrate! dname.to_sym }
+  #   end
+  # end
   desc "Nondestructively update database tables according to the model objects"
   task :upgrade => :boot do
     dname = ENV['DB']
