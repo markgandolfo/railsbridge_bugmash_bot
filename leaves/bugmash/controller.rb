@@ -1,11 +1,13 @@
 # Controller for the bugmash leaf.
-require 'lighthouse_api'
+require 'lighthouse'
+Lighthouse.account = 'rails'
 
 class Controller < Autumn::Leaf
   
   # Typing "!about" displays some basic information about this leaf.
   
   def about_command(stem, sender, reply_to, msg)
+    
     stem.message "hello"
     return
   end
@@ -27,8 +29,13 @@ class Controller < Autumn::Leaf
   #
   def status_command(stem, sender, reply_to, msg)
     # Get Status Message
-    stem.message msg
-    
+     ticket = Lighthouse::Ticket.find(msg, :params => { :project_id => 8994 })
+     
+     ticket.each do |t|
+       puts t
+    end
+
+    stem.message 'a'
     return
   end
   
