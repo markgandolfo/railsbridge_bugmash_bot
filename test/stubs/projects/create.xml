@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <archived type="boolean">false</archived>
+  <created-at type="datetime">2008-03-29T18:01:21+00:00</created-at>
+  <default-assigned-user-id type="integer" nil="true"></default-assigned-user-id>
+  <default-milestone-id type="integer" nil="true"></default-milestone-id>
+  <description>&lt;h2 style=&quot;font-size: 14px&quot;&gt;Source available from github&lt;/h2&gt;
+  <hidden type="boolean">false</hidden>
+  <id type="integer">8994</id>
+  <license>mit</license>
+  <name>Ruby on Rails</name>
+  <open-tickets-count type="integer">714</open-tickets-count>
+  <permalink>ruby-on-rails</permalink>
+  <public type="boolean">true</public>
+  <send-changesets-to-events type="boolean">true</send-changesets-to-events>
+  <updated-at type="datetime">2009-08-01T03:22:20+01:00</updated-at>
+  <open-states-list>new,open,verified</open-states-list>
+  <closed-states-list>committed,resolved,hold,invalid,duplicate,wontfix,incomplete,stale</closed-states-list>
+  <open-states>new/f17  # You can add comments here
+open/aaa # if you want to.
+verified/aaa</open-states>
+  <closed-states>committed/aaa
+resolved/6A0 # You can customize colors
+hold/EB0     # with 3 or 6 character hex codes
+invalid/A30  # 'A30' expands to 'AA3300'
+duplicate/333
+wontfix/333
+incomplete/a30
+stale/333</closed-states>
+</project>

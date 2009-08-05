@@ -5,6 +5,15 @@ require 'activerecord'
 ActiveRecord::Base.schema_format = :ruby
 ActiveRecord::Base.logger = Logger.new(nil)
 
+
+require 'rake/testtask'
+Rake::TestTask.new(:test) do |test|
+  test.libs << 'lib' << 'test'
+  test.pattern = 'test/**/*_test.rb'
+  test.verbose = false
+end
+
+
 task :default do
   puts 'Type "rake --tasks" to see a list of tasks you can perform.'
 end

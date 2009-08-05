@@ -1,0 +1,1259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tickets type="array">
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">1</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-08-01T02:45:21+01:00</created-at>
+    <creator-id type="integer">11378</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2982</number>
+    <permalink>let-integermultiple_of-accept-zero-as-argument</permalink>
+    <priority type="integer">129687</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>activesupport integer multiple_of</tag>
+    <title>Let Integer#multiple_of? accept zero as argument</title>
+    <updated-at type="datetime">2009-08-01T03:22:20+01:00</updated-at>
+    <user-id type="integer">19875</user-id>
+    <user-name>Peter Wagenet</user-name>
+    <creator-name>Xavier Noria</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2982</url>
+    <latest-body>Currently Integer#multiple_of? delegates to %, and so raises a division by zero exception if the argument is zero.
+
+But that case is of course well-defined: no integer is multiple of zero except zero. This little patch adds that.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">1</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-03-17T15:34:31+00:00</created-at>
+    <creator-id type="integer">50981</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">2273</number>
+    <permalink>activesupportjsondecode-dies-on-long-file</permalink>
+    <priority type="integer">1450</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>date json</tag>
+    <title>ActiveSupport::JSON.decode dies on double escaped string</title>
+    <updated-at type="datetime">2009-08-01T01:43:08+01:00</updated-at>
+    <user-id type="integer">64701</user-id>
+    <user-name>Bas van Klinkenberg</user-name>
+    <creator-name>Harm Aarts</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2273</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body>Parsing a long file with ActiveSupport::JSON.decode dies with ActiveSupport::JSON::ParseError: Invalid JSON string.
+The underlying error is an ArgumentError. Running the decode with the attached file yields the error.
+
+I believe the date extraction places the wrong marks or uses them prematurely. Inspecting the error showed: '... &quot;ranAt&quot;: &quot;2009-02-19 21:48:05&quot;  &quot;encoding&quot;: &quot;UTF-8 , ...'. This is clearly wrong with a missing comma and the UTF-8 string not correctly closed.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">1</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-06-24T18:44:12+01:00</created-at>
+    <creator-id type="integer">46945</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">2831</number>
+    <permalink>activesupportjsondecode-explodes-in-certain-circumstances</permalink>
+    <priority type="integer">1926</priority>
+    <project-id type="integer">8994</project-id>
+    <state>open</state>
+    <tag>2.3.2 activesupport json</tag>
+    <title>[PATCH] ActiveSupport::JSON.decode explodes in certain circumstances</title>
+    <updated-at type="datetime">2009-08-01T01:40:19+01:00</updated-at>
+    <user-id type="integer">64701</user-id>
+    <user-name>Bas van Klinkenberg</user-name>
+    <creator-name>martin (at eptcomputing)</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2831</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body>ActiveSupport::JSON.decode has problems with JSON strings which include both quoted slashes and dates:
+
+@@@
+&gt;&gt; ActiveSupport::JSON.decode('{&quot;r&quot;:&quot;http:\/\/foo&quot;,&quot;d&quot;:&quot;2004-06-24&quot;}')
+IndexError: index 38 out of string
+	from /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/json/decoding.rb:75:in `[]='
+	from /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/json/decoding.rb:75:in `convert_json_to_yaml'
+	from /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/json/decoding.rb:75:in `each'
+	from /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/json/decoding.rb:75:in `convert_json_to_yaml'
+	from /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/json/decoding.rb:12:in `decode'
+@@@
+
+Whether quoted slashes are actually valid JSON is not completely clear, but they are definitely seen in the wild -- the JSON gem's Hash#to_json method produces them, for example.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">12714</assigned-user-id>
+    <attachments-count type="integer">3</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-31T22:45:10+01:00</created-at>
+    <creator-id type="integer">64013</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">27004</milestone-id>
+    <number type="integer">2957</number>
+    <permalink>adding-arrayuniq_byproc-to-core_ext-allowing-selection-of-unique-elements-based-on-their-response-to-a-proc</permalink>
+    <priority type="integer">16</priority>
+    <project-id type="integer">8994</project-id>
+    <state>open</state>
+    <tag>patch</tag>
+    <title>Adding Array.uniq_by(proc) to core_ext, allowing selection of unique elements based on their response to a proc</title>
+    <updated-at type="datetime">2009-08-01T00:47:19+01:00</updated-at>
+    <user-id type="integer">1366</user-id>
+    <user-name>Pratik</user-name>
+    <creator-name>Joey Schoblaska</creator-name>
+    <assigned-user-name>Yehuda Katz (wycats)</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2957</url>
+    <milestone-title>3.0</milestone-title>
+    <latest-body>Oftentimes it's necessary to select some unique elements from an array based on various attributes. For instance, if you have an array of posts and you want to select only posts that have a unique author_id; or posts with a unique combination of author_id and created_at date to get an array with one post per user per day. It's usually possible to do this with SQL when you're dealing with AR objects, but that's not always an option, so I wrote this patch to address those cases.
+
+@@@ ruby
+    array = [{:id =&gt; 1, :val =&gt; 1}, 
+             {:id =&gt; 2, :val =&gt; 1},
+             {:id =&gt; 3, :val =&gt; 2},
+             {:id =&gt; 4, :val =&gt; 3}]
+             
+    array.uniq_by(Proc.new {|a| a[:val]}).map{|a| a[:id]} == [1,3,4]
+@@@</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">141</assigned-user-id>
+    <attachments-count type="integer">2</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-06T13:19:34+01:00</created-at>
+    <creator-id type="integer">10679</creator-id>
+    <milestone-due-on type="datetime">2009-08-31T00:00:00+01:00</milestone-due-on>
+    <milestone-id type="integer">41987</milestone-id>
+    <number type="integer">2873</number>
+    <permalink>application-reloading-should-be-deferred-to-end-of-request-currently-interferes-with-render-text-lambda-streaming</permalink>
+    <priority type="integer">1</priority>
+    <project-id type="integer">8994</project-id>
+    <state>open</state>
+    <tag>actionpack patch</tag>
+    <title>Application reloading should be deferred to end of request, currently interferes with 'render :text =&gt; lambda { ... }' streaming</title>
+    <updated-at type="datetime">2009-07-31T23:37:42+01:00</updated-at>
+    <user-id type="integer">141</user-id>
+    <user-name>Michael Koziarski</user-name>
+    <creator-name>Hongli Lai</creator-name>
+    <assigned-user-name>Michael Koziarski</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2873</url>
+    <milestone-title>2.3.4</milestone-title>
+    <latest-body>Consider the following:
+
+  render :text =&gt; lambda { |response, output|
+    User.each do |user|
+      output.write(&quot;#{user.username}\n&quot;)
+    end
+  }
+
+This doesn't work correctly in development mode because AC::Reloader cleans up the application code in an ensure block. However, the lambda passed to 'render :text' is evaluated outside AC::Dispatcher#call, so by the time the lambda is called, the User class has already been cleaned up, resulting in all kinds of &quot;interesting&quot; behavior.
+
+The attached patch for Rails 2.3 defers reloading to the very end of the request, when #close is called on the Rack response body. This makes my above example work correctly.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">141</assigned-user-id>
+    <attachments-count type="integer">2</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-03-25T17:02:10+00:00</created-at>
+    <creator-id type="integer">51868</creator-id>
+    <milestone-due-on type="datetime">2009-08-31T00:00:00+01:00</milestone-due-on>
+    <milestone-id type="integer">41987</milestone-id>
+    <number type="integer">2340</number>
+    <permalink>action-mailer-cant-deliver-mail-via-smtp-on-ruby-191</permalink>
+    <priority type="integer">6</priority>
+    <project-id type="integer">8994</project-id>
+    <state>open</state>
+    <tag>2.3 2.3.2 2.3.x actionmailer bug edge email patch ruby1.9 ruby19 smtp</tag>
+    <title>action mailer can't deliver mail via smtp on ruby 1.9.1</title>
+    <updated-at type="datetime">2009-07-31T22:50:56+01:00</updated-at>
+    <user-id type="integer">29212</user-id>
+    <user-name>Michael Siebert</user-name>
+    <creator-name>Friedrich G&#246;pel</creator-name>
+    <assigned-user-name>Michael Koziarski</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2340</url>
+    <milestone-title>2.3.4</milestone-title>
+    <latest-body>Ruby: ruby 1.9.1p0 (2009-03-04 revision 22762) [i386-darwin9.6.0]
+Rails: edge rails revision: 6ed42ebdff05f9d28a60e91093d8f9afad03a958
+
+Delivering e-mail via smtp on ruby 1.9.1 fails.
+Turning on debugging in postfix reveals the cause:
+@@@
+MAIL FROM:&lt;[&quot;friedrich.goepel@gmail.com&quot;]&gt;
+@@@
+Of course the square brackets are illegal here and make it impossible for the mail server to deliver the mail.
+
+A little digging into action mailer reveals:
+- in perform_delivery_smtp the sender is passed to Net::SMTP as an Array here:
+@@@
+ smtp.sendmail(mail.encoded, sender, destinations)
+@@@
+- it works when changing the line to:
+@@@
+ smtp.sendmail(mail.encoded, sender.first, destinations)
+@@@
+- Apparently a Array is passed in ruby 1.8 as well, where it works as is.
+- Passing a String works in 1.8 as well.
+
+Now when diffing ruby 1.8 and 1.9.1 net/smtp.rb one finds this:
+@@@
+-    def mailfrom( fromaddr )
+-      getok('MAIL FROM:&lt;%s&gt;', fromaddr)
++    def mailfrom(from_addr)
++      getok(&quot;MAIL FROM:&lt;#{from_addr}&gt;&quot;)
+@@@
+
+So it seems this worked before just by sheer accident,
+multiple senders aren't possible anyway,
+so passing an Array here makes little sense.
+
+Further investigation leads to the discovery that the Array wrapping happens in TMail, and switching the mail.from to mail['from'] fixes the problem as well and more cleanly.
+
+So here's a oneliner patch to do just that.
+
+Enjoy. :)</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2009-03-05T20:31:19+00:00</created-at>
+    <creator-id type="integer">49711</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">2140</number>
+    <permalink>edit-post-report-this-post-reply-with-quote-problems-updating-all-gems-to-rails-23-on-win-xp</permalink>
+    <priority type="integer">1356</priority>
+    <project-id type="integer">8994</project-id>
+    <state>invalid</state>
+    <tag>2.3.x install windows</tag>
+    <title>Problems updating all gems to Rails 2.3 on Win XP</title>
+    <updated-at type="datetime">2009-07-31T21:44:48+01:00</updated-at>
+    <user-id type="integer">22414</user-id>
+    <user-name>Adam Grant</user-name>
+    <creator-name>jamesw</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2140</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body>I ran an update on my gems which tried to install version 2.3
+This fell over in a big heap&gt;gem update -y
+Updating installed gems
+Updating actionmailer
+Successfully installed activesupport-2.3.1
+Successfully installed actionpack-2.3.1
+Successfully installed actionmailer-2.3.1
+Updating activerecord
+Successfully installed activerecord-2.3.1
+Updating activeresource
+Successfully installed activeresource-2.3.1
+Updating rails
+Successfully installed rails-2.3.1
+Updating rake
+Successfully installed rake-0.8.4
+Updating rmagick
+Building native extensions. This could take a while...
+ERROR: While executing gem ... (Gem::Installer::ExtensionBuildError)
+ERROR: Failed to build gem native extension.
+
+C:/Development/InstantRails/ruby/bin/ruby.exe extconf.rb update -y
++----------------------------------------------------------------------------+
+| This rmagick gem is for use only on Linux, BSD, OS X, and similar systems |
+| that have a gnu or similar toolchain installed. The rmagick-win32 gem is a |
+| pre-compiled version of RMagick bundled with ImageMagick for use on |
+| Microsoft Windows systems. The rmagick-win32 gem is available on RubyForge.|
+| See http://rmagick.rubyforge.org/install-faq.html for more information. |
++----------------------------------------------------------------------------+
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of
+necessary libraries and/or headers. Check the mkmf.log file for more
+details. You may need configuration options.
+
+Provided configuration options:
+--with-opt-dir
+--without-opt-dir
+--with-opt-include
+--without-opt-include=${opt-dir}/include
+--with-opt-lib
+--without-opt-lib=${opt-dir}/lib
+--with-make-prog
+--srcdir=.
+--curdir
+--ruby=C:/Development/InstantRails/ruby/bin/ruby
+
+
+Gem files will remain installed in C:/Development/InstantRails/ruby/lib/ruby/gems/1.8/gems/rmagick-2.9.1 for inspection.
+Results logged to C:/Development/InstantRails/ruby/lib/ruby/gems/1.8/gems/rmagick-2.9.1/ext/RMagick/gem_make.out
+
+So I uninstalled RMagick and ran the update again
+
+Now I am getting
+
+Updating installed gems
+Updating sqlite3-ruby
+Building native extensions. This could take a while...
+ERROR: While executing gem ... (Gem::Installer::ExtensionBuildError)
+ERROR: Failed to build gem native extension.
+
+C:/Development/InstantRails/ruby/bin/ruby.exe extconf.rb update -y
+checking for fdatasync() in rt.lib... no
+checking for sqlite3.h... no
+
+nmake
+'nmake' is not recognized as an internal or external command,
+operable program or batch file.
+
+
+Gem files will remain installed in C:/Development/InstantRails/ruby/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.4 for inspection.
+Results logged to C:/Development/InstantRails/ruby/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.4/ext/sqlite3_api/gem_make.out
+&gt;
+
+So what do I do now?
+
+I can happily abandon my attempts to update to 2.3 and go back to 2.2.2 until these issues are resolved but I'm stumped as to what to do to achieve this.
+
+Any ideas would be appreciated
+
+James</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-31T18:30:59+01:00</created-at>
+    <creator-id type="integer">16162</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2980</number>
+    <permalink>date-datetime-time-not-playing-nice-with-day-hour-etc</permalink>
+    <priority type="integer">129614</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>2.3.3 date datetime time</tag>
+    <title>Date, DateTime, Time not playing nice with #.day, #hour, etc.</title>
+    <updated-at type="datetime">2009-07-31T19:09:02+01:00</updated-at>
+    <user-id type="integer">16162</user-id>
+    <user-name>Ben Wiseley</user-name>
+    <creator-name>Ben Wiseley</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2980</url>
+    <latest-body>On Rails 2.3.3, Ruby 1.8.7
+
+I'm pretty sure this used to work in Rails 2.3.2 (we started getting lots of errors related to this kind of thing after upping to 2.3.3)
+
+These should all add one day
+Date.today + 1.day 
+DateTime.now + 1.day 
+Time.now + 1.day
+
+These DO all add one month
+Date.today + 1.month 
+DateTime.now + 1.month 
+Time.now + 1.month
+
+These should add one hour
+DateTime.now + 1.hour
+Time.now + 1.hour</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">1</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-31T19:07:48+01:00</created-at>
+    <creator-id type="integer">17826</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2981</number>
+    <permalink>validates_length_of-should-exclude-last-member-of-an-end-excluding-range</permalink>
+    <priority type="integer">129623</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>patch validates_length_of validations</tag>
+    <title>validates_length_of should exclude last member of an end-excluding range</title>
+    <updated-at type="datetime">2009-07-31T19:08:59+01:00</updated-at>
+    <user-id type="integer">17826</user-id>
+    <user-name>jed</user-name>
+    <creator-name>jed</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2981</url>
+    <latest-body>If provided with an end-excluding range, validates_length_of will not exclude the last member of the range.
+
+In the code below, the current behavior of validates_length_of will consider the first_name attribute valid if it is 61 characters long.
+
+@@@ ruby
+class Person &lt;&lt; ActiveRecord::Base
+  validates_length_of :first_name, :in =&gt; 3...61
+end
+@@@
+
+The attached patch corrects this by properly excluding the last member of an exclusive range.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-31T16:24:49+01:00</created-at>
+    <creator-id type="integer">63804</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2979</number>
+    <permalink>bad-content-body-in-file-upload</permalink>
+    <priority type="integer">129575</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag nil="true"></tag>
+    <title>bad content body in file upload</title>
+    <updated-at type="datetime">2009-07-31T16:24:55+01:00</updated-at>
+    <user-id type="integer">63804</user-id>
+    <user-name>Carlo Schiesaro</user-name>
+    <creator-name>Carlo Schiesaro</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2979</url>
+    <latest-body>I have some problems with multiple file uploader. I have a multiple-files flash up-loader and for some jpg files (generally small size files) I receive this error:
+
+@@@
+/!\ FAILSAFE /!\  Thu Jul 23 16:08:38 +0200 2009
+  Status: 500 Internal Server Error
+  bad content body
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/utils.rb:315:in `parse_multipart'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/request.rb:141:in `POST'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:15:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/abstract_store.rb:122:in `call'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/cgi_process.rb:44:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:102:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:28:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/railz/request_handler.rb:38:in `process_request'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_request_handler.rb:165:in `main_loop'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/railz/application_spawner.rb:313:in `start_request_handler'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/railz/application_spawner.rb:281:in `handle_spawn_application'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/utils.rb:163:in `safe_fork'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/utils.rb:161:in `fork'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/utils.rb:161:in `safe_fork'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/railz/application_spawner.rb:279:in `handle_spawn_application'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/utils.rb:163:in `safe_fork'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/utils.rb:161:in `fork'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/utils.rb:161:in `safe_fork'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/railz/application_spawner.rb:278:in `handle_spawn_application'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:317:in `__send__'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:317:in `main_loop'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:168:in `start_synchronously'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:135:in `start'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:112:in `fork'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:112:in `start'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/railz/application_spawner.rb:178:in `start'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/railz/framework_spawner.rb:270:in `handle_spawn_application'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/railz/framework_spawner.rb:263:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/railz/framework_spawner.rb:263:in `handle_spawn_application'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:317:in `__send__'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:317:in `main_loop'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:168:in `start_synchronously'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:135:in `start'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:112:in `fork'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:112:in `start'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/railz/framework_spawner.rb:87:in `start'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/spawn_manager.rb:218:in `spawn_rails_application'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/spawn_manager.rb:213:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/spawn_manager.rb:213:in `spawn_rails_application'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/spawn_manager.rb:122:in `spawn_application'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/spawn_manager.rb:247:in `handle_spawn_application'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:317:in `__send__'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:317:in `main_loop'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/lib/passenger/abstract_server.rb:168:in `start_synchronously'
+    /usr/lib/ruby/gems/1.8/gems/passenger-2.0.4/bin/passenger-spawn-server:46
+@@@
+
+It's strange because if I try to upload the same file again the upload works well.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">15783</assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2009-04-10T20:39:13+01:00</created-at>
+    <creator-id type="integer">22224</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">27004</milestone-id>
+    <number type="integer">2479</number>
+    <permalink>inconsistant-time-zone-handling</permalink>
+    <priority type="integer">2</priority>
+    <project-id type="integer">8994</project-id>
+    <state>wontfix</state>
+    <tag>2.3.2 time timewithzone timezone to_time</tag>
+    <title>Inconsistant time zone handling</title>
+    <updated-at type="datetime">2009-07-31T14:34:50+01:00</updated-at>
+    <user-id type="integer">15783</user-id>
+    <user-name>Geoff Buesing</user-name>
+    <creator-name>JackC</creator-name>
+    <assigned-user-name>Geoff Buesing</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2479</url>
+    <milestone-title>3.0</milestone-title>
+    <latest-body>I'm storing datetimes in MySQL in UTC. I want to retrieve them based on date.
+
+Here's the problem. Time objects ignore the time zone in to_s(:db).
+
+&gt;&gt; Time.local( 2009,1,1, 0,0,0 )
+=&gt; Thu Jan 01 00:00:00 -0600 2009
+&gt;&gt; Time.local( 2009,1,1, 0,0,0 ).to_s(:db)
+=&gt; &quot;2009-01-01 00:00:00&quot;
+
+
+TimeWithZone objects preserve the time zone in to_s(:db).
+
+
+&gt;&gt; Time.zone.local( 2009,1,1, 0,0,0 )
+=&gt; Thu, 01 Jan 2009 00:00:00 CST -06:00
+&gt;&gt; Time.zone.local( 2009,1,1, 0,0,0 ).to_s(:db)
+=&gt; &quot;2009-01-01 06:00:00&quot;
+
+
+All the to_time helpers return Time objects which have their time zone thrown away when used in an ActiveRecord query. This leads to problems when using to_time
+
+Example:
+
+&gt;&gt; Date.today.beginning_of_day
+=&gt; Fri Apr 10 00:00:00 -0500 2009
+&gt;&gt; Time.zone.now.beginning_of_day
+=&gt; Fri, 10 Apr 2009 00:00:00 CDT -05:00
+&gt;&gt; Date.today.beginning_of_day == Time.zone.now.beginning_of_day
+=&gt; true
+
+&gt;&gt; Person.all :conditions =&gt; [ &quot;created_at &gt; ?&quot;, Date.today.beginning_of_day ]
+Generated SQL =&gt; SELECT * FROM &quot;people&quot; WHERE (created_at &gt; '2009-04-10 00:00:00')
+
+Person.all :conditions =&gt; [ &quot;created_at &gt; ?&quot;, Time.zone.now.beginning_of_day ]
+Generated SQL =&gt; SELECT * FROM &quot;people&quot; WHERE (created_at &gt; '2009-04-10 05:00:00')
+
+
+It would seem to me that Time#to_s(:db) should convert the time zone and/or to_time should return a TimeWithZone.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2009-07-30T15:46:06+01:00</created-at>
+    <creator-id type="integer">64547</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2974</number>
+    <permalink>add-find-unique-to-activerecord</permalink>
+    <priority type="integer">129293</priority>
+    <project-id type="integer">8994</project-id>
+    <state>wontfix</state>
+    <tag>:first :unique activerecord find</tag>
+    <title>Add find :unique to ActiveRecord</title>
+    <updated-at type="datetime">2009-07-31T12:01:54+01:00</updated-at>
+    <user-id type="integer">1366</user-id>
+    <user-name>Pratik</user-name>
+    <creator-name>Joris</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2974</url>
+    <latest-body>The current method of getting the result of a query is find :fisrt.
+This will essentially do a query with max 1 row.
+
+However, sometimes a developer creates a query that doesn't work the way he thought it would.
+
+My suggestion is to add a new find :unique
+
+This should do the basically same as find :first, except that it should not limit the number of records.
+If more than 1 was found, it should raise an exception stating that there are too many records (and also the number of records found, just to inform the dev)
+
+find :first should be deprecated for the use of getting a unique row from a query.
+
+:first and :last have the same type of use. Finding the first or last in a list.
+
+
+For example:
+
+Person.find :unique, :conditions =&gt; { :ssid =&gt; ssid }
+vs
+Person.find :first, :conditions =&gt; { :ssid =&gt; ssid }
+
+
+Also, the method_missing way of finding should use the unique.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2009-07-31T05:25:54+01:00</created-at>
+    <creator-id type="integer">10460</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2977</number>
+    <permalink>has_one-through-preload-drops-conditions</permalink>
+    <priority type="integer">129445</priority>
+    <project-id type="integer">8994</project-id>
+    <state>duplicate</state>
+    <tag>2.3.3 :include activerecord bug has_one preload through</tag>
+    <title>has_one :through preload drops conditions</title>
+    <updated-at type="datetime">2009-07-31T11:54:52+01:00</updated-at>
+    <user-id type="integer">7211</user-id>
+    <user-name>Mike Gunderloy</user-name>
+    <creator-name>Will Bryant</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2977</url>
+    <latest-body>If I have:
+
+@@@ ruby
+class Customer
+  has_one  :active_debit_balance_event, :through =&gt; :consumers, :source =&gt; :events, :class_name =&gt; 'Event',
+    :conditions =&gt; {:events =&gt; {:active =&gt; true, :type =&gt; 'DebitBalanceEvent'}}
+end
+@@@
+
+Then Customer.find(370).active_debit_balance_event correctly uses:
+
+@@@ sql
+Customer Load (0.6ms)   SELECT * FROM `customers` WHERE (`customers`.`id` = 370) 
+Event Load (5.7ms)   SELECT `events`.* FROM `events` INNER JOIN `consumers` ON `events`.consumer_id = `consumers`.id WHERE ((`consumers`.customer_id = 370) AND ((`events`.`type` = 'DebitBalanceEvent' AND `events`.`active` = 1))) 
+@@@
+
+However if I preload using Customer.find(370, :include =&gt; :active_debit_balance_event) then instead we see:
+
+@@@ sql
+Customer Load (0.5ms)   SELECT * FROM `customers` WHERE (`customers`.`id` = 370) 
+Consumer Load (0.6ms)   SELECT `consumers`.* FROM `consumers` WHERE (`consumers`.customer_id = 370) ORDER BY start_date desc
+Event Load (27.3ms)   SELECT `events`.* FROM `events` WHERE (`events`.consumer_id = 377) ORDER BY created_at DESC
+@@@
+
+Note that there are no conditions on the events query.  The resulting loaded has_one association actually returns a collection (looks like an array - ie. like a has_many).</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-29T10:55:55+01:00</created-at>
+    <creator-id type="integer">23283</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2972</number>
+    <permalink>mongrel-does-not-properly-release-db-connections</permalink>
+    <priority type="integer">128994</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>2.3.2 connection_pooling mongrel sql_session_store</tag>
+    <title>Mongrel does not properly release db connections</title>
+    <updated-at type="datetime">2009-07-31T11:21:44+01:00</updated-at>
+    <user-id type="integer">23283</user-id>
+    <user-name>Laurent Farcy</user-name>
+    <creator-name>Laurent Farcy</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2972</url>
+    <latest-body>Hi,
+
+I recently upgraded my application from Rails 2.0.5 to 2.3.2. Since then, I detected an issue when running it with Mongrel in production mode.
+
+If I set the pool to 1 connection in database.yml and let the wait_timeout to 5, every request (except the very first one) waits for 5 seconds before being processed by Rails.
+
+If I increase the pool to 3 connections, the browser waits for 5 seconds every 3 requests. 
+
+It looks like Mongrel does not immediately release the connection from the pool when it finishes the request processing. One assumption is that we have to wait for Mongrel to kill its thread that processed the request for the connection to be released (to be verified).
+
+Please note that sessions are managed by the sql_session_store plugin with a MySQL back-end. Mongrel version is 1.1.5.
+
+Laurent</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">2</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-03-25T13:19:37+00:00</created-at>
+    <creator-id type="integer">9435</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">2338</number>
+    <permalink>actionmailer-mailer-views-and-content-type</permalink>
+    <priority type="integer">1501</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>2-3-3 actionmailer layout multipart</tag>
+    <title>ActionMailer Mailer Views and Content Type</title>
+    <updated-at type="datetime">2009-07-31T10:08:41+01:00</updated-at>
+    <user-id type="integer">23794</user-id>
+    <user-name>Fernando Guillen</user-name>
+    <creator-name>Vidal Graupera</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2338</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body>I upgraded from Rails 2.2 to 2.3.2.
+
+I have mailer views, e.g. message.text.html.erb and message.text.plain.erb. Before, this use to automatically pick up both and set the content type correctly per the documentation at http://guides.rubyonrails.org/action_mailer_basics.html.
+
+Now, it is rendering the HTML .text.html.erb but setting Content-Type: text/plain. This results in emails that show all the html markup in the display.
+
+To get this to work now, I have to set 
+
+    content_type &quot;text/html&quot;
+
+in the methods in my UserMailer class. Did not need to do this before.
+
+Did something change between previous versions of rails and 2.3, or is this broken in 2.3?
+
+Thanks</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">22589</assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-31T07:09:19+01:00</created-at>
+    <creator-id type="integer">14688</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2978</number>
+    <permalink>rake-gemsrefresh_specs-not-working-as-expected</permalink>
+    <priority type="integer">129480</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>2.3.3 gems</tag>
+    <title>rake gems:refresh_specs not working as expected...</title>
+    <updated-at type="datetime">2009-07-31T09:44:09+01:00</updated-at>
+    <user-id type="integer">22589</user-id>
+    <user-name>Matt Jones</user-name>
+    <creator-name>Adam S</creator-name>
+    <assigned-user-name>Matt Jones</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2978</url>
+    <latest-body>1. create new rails project
+2. unpack a gem manually in vendor/gems
+
+@@@
+cd vendor/gems
+gem unpack test_gem
+@@@
+
+3. run `rake gems:refresh_specs`</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">424</assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2009-07-24T16:42:03+01:00</created-at>
+    <creator-id type="integer">51848</creator-id>
+    <milestone-due-on type="datetime">2009-08-31T00:00:00+01:00</milestone-due-on>
+    <milestone-id type="integer">41987</milestone-id>
+    <number type="integer">2948</number>
+    <permalink>exception-a-copy-of-actorscontroller-has-been-removed-from-the-module-tree-but-is-still-active</permalink>
+    <priority type="integer">1</priority>
+    <project-id type="integer">8994</project-id>
+    <state>duplicate</state>
+    <tag>2.3.3 rack reloading</tag>
+    <title>Exception: A copy of ActorsController has been removed from the module tree but is still active!</title>
+    <updated-at type="datetime">2009-07-31T07:17:55+01:00</updated-at>
+    <user-id type="integer">141</user-id>
+    <user-name>Michael Koziarski</user-name>
+    <creator-name>info (at tomrothe)</creator-name>
+    <assigned-user-name>Joshua Peek</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2948</url>
+    <milestone-title>2.3.4</milestone-title>
+    <latest-body>Under windows i constantly get this error since i upgraded to version 2.3.3:
+
+A copy of ActorsController has been removed from the module tree but is still active!
+
+c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:414:in `load_missing_constant'
+c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:96:in `const_missing'
+XXX/app/controllers/XXX_controller.rb:78:in `some_before_filter'
+
+if i use 2.3.2 there is no problem at all2
+
+unfortunately, i can't reproduce the error to happen every time i request a page, it only occurs sometimes.
+
+there is a little discussion on this topic in the comments of the 2.3.3 release blog post (http://weblog.rubyonrails.org/2009/7/20/rails-2-3-3-touching-faster-json-bug-fixes)
+
+i updated my rubygems to version 1.3.5 but no success.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">85</assigned-user-id>
+    <attachments-count type="integer">3</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-06-07T20:28:14+01:00</created-at>
+    <creator-id type="integer">59034</creator-id>
+    <milestone-due-on type="datetime">2009-08-31T00:00:00+01:00</milestone-due-on>
+    <milestone-id type="integer">41987</milestone-id>
+    <number type="integer">2776</number>
+    <permalink>ruby-19-compatability-fix-sum</permalink>
+    <priority type="integer">1</priority>
+    <project-id type="integer">8994</project-id>
+    <state>open</state>
+    <tag>activesupport patch &quot;ruby 1.8.7&quot; ruby1.9 tested</tag>
+    <title>Ruby 1.9 compatability fix - sum</title>
+    <updated-at type="datetime">2009-07-31T07:01:13+01:00</updated-at>
+    <user-id type="integer">17200</user-id>
+    <user-name>Xavier Shay</user-name>
+    <creator-name>dreamcat4 (at gmail)</creator-name>
+    <assigned-user-name>Jeremy Kemper</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2776</url>
+    <milestone-title>2.3.4</milestone-title>
+    <latest-body>This patch provides a compatibility fix to the sum method for enumerable objects in activesupport, core_ext, enumerable Module.
+
+This patch is to avoid the following error under ruby 1.9:
+
+When summing an array of strings and [] empty array:
+rails/activesupport/lib/active_support/core_ext/enumerable.rb:67:
+in `sum': wrong number of arguments (0 for 1) (ArgumentError)
+
+Source: potionstore, ruby 1.9.1p129, rails 2-3-stable
+Error log attached.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-28T22:18:02+01:00</created-at>
+    <creator-id type="integer">54695</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2967</number>
+    <permalink>zombies-with-ppid-1-after-premature-death-of-ruby-scriptconsole</permalink>
+    <priority type="integer">128879</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>2.x leaks memory rails</tag>
+    <title>Zombies with PPID 1 after premature death of ruby script/console</title>
+    <updated-at type="datetime">2009-07-31T06:46:34+01:00</updated-at>
+    <user-id type="integer">10460</user-id>
+    <user-name>Will Bryant</user-name>
+    <creator-name>rubynewbie</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2967</url>
+    <latest-body>Folks,
+
+On my slice, I sometimes run update scripts like this -
+ruby script/console
+&gt;&gt; include necessary_file
+&gt;&gt; update_db_blah
+
+At times, script dies (due to intermittent internet connection or I have tried to stop it with Ctrl+Z). After that, I see zombie processes with PPID 1 and they chew slice's memory.
+
+Hard/soft reboot don't help either.
+
+ps aux -H shows this -
+root 1 0.0 0.0 3984 48 ? Ss Jul27 0:00 /sbin/init
+.
+.
+.
+rajat 9096 2.6 15.1 501412 159140 ? D 15:54 4:21 Rails: /var/www/blah
+rajat 9103 2.9 16.6 1025760 175092 ? D 16:02 4:40 Rails: /var/www/blah
+rajat 9133 1.5 15.7 982324 165388 ? D 16:31 1:59 Rails: /var/www/blah
+rajat 9135 0.9 15.0 366776 157800 ? D 16:31 1:10 Rails: /var/www/blah
+rajat 9167 0.4 15.6 341976 164540 ? D 16:36 0:35 Rails: /var/www/blah
+
+
+See all of them combined are chewing up all the memory.
+
+free -m
+total used free shared buffers cached
+Mem: 1024 1014 9 0 0 3
+-/+ buffers/cache: 1010 14
+Swap: 2047 2046 1
+
+I kill processes using kill -9 but they keep coming back up.
+
+Is there a fix /patch to avoid these memory leaks/zombies from coming up?</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-31T05:25:51+01:00</created-at>
+    <creator-id type="integer">10460</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2976</number>
+    <permalink>has_one-through-preload-drops-conditions</permalink>
+    <priority type="integer">129444</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>2.3.3 :include activerecord bug has_one preload through</tag>
+    <title>has_one :through preload drops conditions</title>
+    <updated-at type="datetime">2009-07-31T05:25:58+01:00</updated-at>
+    <user-id type="integer">10460</user-id>
+    <user-name>Will Bryant</user-name>
+    <creator-name>Will Bryant</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2976</url>
+    <latest-body>If I have:
+
+@@@ ruby
+class Customer
+  has_one  :active_debit_balance_event, :through =&gt; :consumers, :source =&gt; :events, :class_name =&gt; 'Event',
+    :conditions =&gt; {:events =&gt; {:active =&gt; true, :type =&gt; 'DebitBalanceEvent'}}
+end
+@@@
+
+Then Customer.find(370).active_debit_balance_event correctly uses:
+
+@@@ sql
+Customer Load (0.6ms)   SELECT * FROM `customers` WHERE (`customers`.`id` = 370) 
+Event Load (5.7ms)   SELECT `events`.* FROM `events` INNER JOIN `consumers` ON `events`.consumer_id = `consumers`.id WHERE ((`consumers`.customer_id = 370) AND ((`events`.`type` = 'DebitBalanceEvent' AND `events`.`active` = 1))) 
+@@@
+
+However if I preload using Customer.find(370, :include =&gt; :active_debit_balance_event) then instead we see:
+
+@@@ sql
+Customer Load (0.5ms)   SELECT * FROM `customers` WHERE (`customers`.`id` = 370) 
+Consumer Load (0.6ms)   SELECT `consumers`.* FROM `consumers` WHERE (`consumers`.customer_id = 370) ORDER BY start_date desc
+Event Load (27.3ms)   SELECT `events`.* FROM `events` WHERE (`events`.consumer_id = 377) ORDER BY created_at DESC
+@@@
+
+Note that there are no conditions on the events query.  The resulting loaded has_one association actually returns a collection (looks like an array - ie. like a has_many).</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-30T19:50:10+01:00</created-at>
+    <creator-id type="integer">64574</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2975</number>
+    <permalink>inconsistence-constantize-behavior</permalink>
+    <priority type="integer">129345</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>2.3.3 constantize</tag>
+    <title>constantize now less robust in 2.3.3</title>
+    <updated-at type="datetime">2009-07-31T00:58:02+01:00</updated-at>
+    <user-id type="integer">64574</user-id>
+    <user-name>Rajesh</user-name>
+    <creator-name>Rajesh</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2975</url>
+    <latest-body>Constantize cannot access internal classes in 2.3.3 but seems to be working fine in 2.1.0
+
+In 2.3.3 irb
+
+&gt;&gt; class A; class B; end end
+=&gt; nil
+&gt;&gt; class C &lt; A; end
+=&gt; nil
+&gt;&gt; C::B
+=&gt; A::B
+&gt;&gt; 'C::B'.constantize
+NameError: uninitialized constant C::B
+	from /Users/tim/src/property/rails23/vendor/rails/activesupport/lib/active_support/dependencies.rb:105:in `const_missing'
+	from /Users/tim/src/property/rails23/vendor/rails/activesupport/lib/active_support/inflector.rb:361:in `constantize'
+	from /Users/tim/src/property/rails23/vendor/rails/activesupport/lib/active_support/inflector.rb:360:in `each'
+	from /Users/tim/src/property/rails23/vendor/rails/activesupport/lib/active_support/inflector.rb:360:in `constantize'
+	from /Users/tim/src/property/rails23/vendor/rails/activesupport/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+	from (irb):4
+
+But it works fine in 2.1.0 
+
+&gt;&gt; class A; class B; end end
+=&gt; nil
+&gt;&gt; class C &lt; A; end
+=&gt; nil
+&gt;&gt; A::B
+=&gt; A::B
+&gt;&gt; C::B
+=&gt; A::B
+&gt;&gt; 'C::B'.constantize
+=&gt; A::B</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">1</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2009-07-29T03:33:31+01:00</created-at>
+    <creator-id type="integer">29892</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer" nil="true"></milestone-id>
+    <number type="integer">2970</number>
+    <permalink>parameters-to-functional-test-requests-should-have-proper-values</permalink>
+    <priority type="integer">128955</priority>
+    <project-id type="integer">8994</project-id>
+    <state>wontfix</state>
+    <tag>parameters params testing</tag>
+    <title>Parameters to functional test requests should have proper values</title>
+    <updated-at type="datetime">2009-07-30T23:30:21+01:00</updated-at>
+    <user-id type="integer">11378</user-id>
+    <user-name>Xavier Noria</user-name>
+    <creator-name>Adam Milligan</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2970</url>
+    <latest-body>How many times have you written this in a functional test:
+
+&lt;code&gt;
+post :create, :wibble =&gt; { :dingledongle =&gt; 7 }
+&lt;/code&gt;
+
+It looks fine, and the test runs fine, but then you deploy and BOOM! because your Wibble model is assuming the dingledongle value is a number, but the real HTTP parameter is, in fact a string.
+
+Or this:
+
+&lt;code&gt;
+post :index, :parent_id =&gt; @parent.id
+&lt;/code&gt;
+
+Tests run fine, everything works, until you change #to_param on the Parent model to return a URL slug and then you're up all night fixing test failures.  The :parent_id parameter isn't an ID, after all, it's part of a URL, and it should be a string.
+
+In short, parameters to functional test requests should be strings, because that's what HTTP provides in real life.  This patch verifies that this is the case, and throws a warm and friendly exception if you're trying to pass in something improper (it also allows TestUploadedFile instances, nil, and, for parameters used in routing, ActiveRecords.
+
+This patch is about a dozen lines in TestRequest, a pile of tests, and a bunch of changes to tests that were passing in improper values.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-08T13:26:48+01:00</created-at>
+    <creator-id type="integer">38023</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">2883</number>
+    <permalink>validates_uniqueness_of-fails-with-diacritics-on-mysql</permalink>
+    <priority type="integer">1970</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>2-3-stable activerecord adapters mysql validate_uniqueness_of</tag>
+    <title>Diacritics break validates_uniqueness_of on MySQL</title>
+    <updated-at type="datetime">2009-07-30T22:36:05+01:00</updated-at>
+    <user-id type="integer">64587</user-id>
+    <user-name>Emmanuel</user-name>
+    <creator-name>awendt</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2883</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body>Consider this Person model on Rails 2.3.2:
+
+  class Person &lt; ActiveRecord::Base
+
+    validates_uniqueness_of :name
+
+  end
+
+This lets me create two people with the name 'andr&#233;', and the second person gets an ActiveRecord::StatementInvalid. The same code on Sqlite works fine.
+
+This is because the MySQL adapter issues
+
+  SELECT `people`.id FROM `people` WHERE (`people`.`name` = BINARY 'andr&#233;') LIMIT 1
+
+while Sqlite gets
+
+  SELECT &quot;people&quot;.id FROM &quot;people&quot; WHERE (&quot;people&quot;.&quot;name&quot; = 'andr&#233;') LIMIT 1
+
+Code to reproduce is on http://github.com/awendt/validates_uniqueness_with_diacritics.
+
+  SHOW CREATE TABLE people:
+
++--------+----------------------------------------------------------
+| Table  | Create Table|
++--------+----------------------------------------------------------
+| people | CREATE TABLE `people` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8
++--------+----------------------------------------------------------
+
+Character set and collation seem fine. This is on OSX.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">12714</assigned-user-id>
+    <attachments-count type="integer">3</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2009-07-02T21:17:08+01:00</created-at>
+    <creator-id type="integer">16138</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">27004</milestone-id>
+    <number type="integer">2864</number>
+    <permalink>patch-add-audio_tag-to-actionview</permalink>
+    <priority type="integer">17</priority>
+    <project-id type="integer">8994</project-id>
+    <state>resolved</state>
+    <tag>actionview patch</tag>
+    <title>[PATCH] fix rendering of boolean attributes in tag helper methods</title>
+    <updated-at type="datetime">2009-07-30T21:22:35+01:00</updated-at>
+    <user-id type="integer">12714</user-id>
+    <user-name>Yehuda Katz (wycats)</user-name>
+    <creator-name>Emilio Tagua</creator-name>
+    <assigned-user-name>Yehuda Katz (wycats)</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2864</url>
+    <milestone-title>3.0</milestone-title>
+    <latest-body>After adding video_tag in ticket #2843, we definitely should have the audio tag.
+
+The patch:
+- Adds the audio_tag and audio_path, with test and docs.
+- Fixes video_path typo and error in docs.
+- Changes audio and video attributes values so they are either true or false and not attribute's name value. This is specified in [1] and [2]. 
+
+[1] http://www.w3schools.com/tags/html5_audio.asp
+[2] http://www.w3schools.com/tags/html5_video.asp</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">1</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2009-06-29T13:54:45+01:00</created-at>
+    <creator-id type="integer">52531</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">2851</number>
+    <permalink>filtering-parameters-inside-arrays-when-logging</permalink>
+    <priority type="integer">1944</priority>
+    <project-id type="integer">8994</project-id>
+    <state>resolved</state>
+    <tag>action_controller logging patch</tag>
+    <title>Filtering parameters inside arrays when logging</title>
+    <updated-at type="datetime">2009-07-30T18:35:12+01:00</updated-at>
+    <user-id type="integer">52531</user-id>
+    <user-name>vicente.mundim (at gmail)</user-name>
+    <creator-name>vicente.mundim (at gmail)</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2851</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body>I've stumbled upon this issue while creating an application which makes use of nested forms. Basically, I have an Account model which has many Users. When I create the account it also creates one User. The action receives parameters like:
+
+:account =&gt; { :name =&gt; 'foo', :users_attributes =&gt; [{ :login =&gt;
+'foo', :password =&gt; 'secret', :password_confirmation =&gt; 'secret' }] }
+
+Since my controller has the following line:
+
+filter_parameter_logging :password, :password_confirmation
+
+I was expecting to see both password and password_confirmation filtered, but they weren't. Looking inside filter_parameter_logging I understand that it didn't treated arrays at all. I've made a patch, but it seems rails.lighthouseapp.com is down, so I'll just post it here. The patch contains changes to both code and tests. I've made it by branching origin/2-3-stable.
+
+I think it may be wrong in older versions of rails too.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">85</assigned-user-id>
+    <attachments-count type="integer">2</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-03-18T10:23:46+00:00</created-at>
+    <creator-id type="integer">7697</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">2283</number>
+    <permalink>unnecessary-exception-raised-in-asdependenciesload_missing_constant</permalink>
+    <priority type="integer">1459</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>active_support constant dependencies loading patched</tag>
+    <title>Unnecessary exception raised in AS::Dependencies.load_missing_constant</title>
+    <updated-at type="datetime">2009-07-30T17:09:37+01:00</updated-at>
+    <user-id type="integer">1366</user-id>
+    <user-name>Pratik</user-name>
+    <creator-name>Andrew White</creator-name>
+    <assigned-user-name>Jeremy Kemper</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2283</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body>When load_missing_constant is called with an already defined constant an exception is raised along the lines of &quot;ArgumentError: Admin is not missing constant User!&quot;. This seems unnecessarily harsh - why not just return the existing constant? This would have the side effect of fixing a problem with namespaced models in ActiveRecord, e.g:
+
+@@@ ruby
+module Admin
+  class User &lt; ActiveRecord::Base
+    has_one :account
+  end
+
+  class Account &lt; ActiveRecord::Base
+    belongs_to :user
+  end
+end
+@@@
+
+If both the Admin::User and Admin::Account models have previously been loaded then the compute_type method looks for Admin::User::Account or Admin::Account::User first and doesn't find them and then load_missing_constant gets called. This looks in the parent module and finds them already defined and then the exception gets raised.
+
+The attached patch fixes this problem and modifies the test for double loading. All tests pass with this change on my computer.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">1</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2008-07-10T16:25:51+01:00</created-at>
+    <creator-id type="integer">24671</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">593</number>
+    <permalink>paragraphed-anchors-and-notice-layout-in-generators</permalink>
+    <priority type="integer">83</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>2.1 generators patch railties</tag>
+    <title>Paragraphed anchors and notice layout in generators</title>
+    <updated-at type="datetime">2009-07-30T17:08:37+01:00</updated-at>
+    <user-id type="integer">1366</user-id>
+    <user-name>Pratik</user-name>
+    <creator-name>Andrew Chalkley</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/593</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body># In the view generators (new edit show) anchors at the bottom are not nested in a paragraph - this is a pain to add every time you generate scaffold
+# The layout generated includes and unnecessary empty paragraph if there isn't a notice. Also it has inline style.  Used content_tag to generate paragraph unless the flash is blank with id #notice. Moved style into style.css. Less obtrusive.
+
+See attached patch.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">1366</assigned-user-id>
+    <attachments-count type="integer">1</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2009-06-14T18:27:48+01:00</created-at>
+    <creator-id type="integer">33030</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">2802</number>
+    <permalink>fixed-counter_sql-from-finder_sql-to-work-with-subselects</permalink>
+    <priority type="integer">1902</priority>
+    <project-id type="integer">8994</project-id>
+    <state>incomplete</state>
+    <tag nil="true"></tag>
+    <title>fixed counter_sql from finder_sql to work with subselects</title>
+    <updated-at type="datetime">2009-07-30T13:33:27+01:00</updated-at>
+    <user-id type="integer">1366</user-id>
+    <user-name>Pratik</user-name>
+    <creator-name>Kane</creator-name>
+    <assigned-user-name>Pratik</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2802</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body>This patch allows to use subselects in the finder_sql without specifing the counter_sql which was impossible because the regex was too greedy. The patch fixes this issue for has_many, has_many :through and has_and_belongs_to_many.
+Tests included.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">1</attachments-count>
+    <closed type="boolean">false</closed>
+    <created-at type="datetime">2009-07-26T03:37:12+01:00</created-at>
+    <creator-id type="integer">63935</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">2958</number>
+    <permalink>patch-force-create-to-fetch-quoted-attributes-once</permalink>
+    <priority type="integer">2036</priority>
+    <project-id type="integer">8994</project-id>
+    <state>new</state>
+    <tag>active_record attributes create</tag>
+    <title>[PATCH] force create() to fetch quoted attributes once</title>
+    <updated-at type="datetime">2009-07-30T11:20:46+01:00</updated-at>
+    <user-id type="integer">63935</user-id>
+    <user-name>jd</user-name>
+    <creator-name>jd</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2958</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body>In ActiveRecord::Base, the private method create() first fetches quoted attributes with attributes_with_quotes. It then may build a custom SQL statement, where quoted_column_names() is called. This in turns triggers a second call to attributes_with_quotes() since it is used as the method's default parameter.
+
+This single-line patch prevents from calling attributes_with_quotes() twice by supplying the fetched quoted attributes as the parameter when calling quoted_column_names(). I assumed standard rake tests are enough.
+
+Note: this is my first patch proposal, feel free to tell me what may be wrong.</latest-body>
+  </ticket>
+  <ticket>
+    <assigned-user-id type="integer">141</assigned-user-id>
+    <attachments-count type="integer">5</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2008-10-24T18:42:15+01:00</created-at>
+    <creator-id type="integer">32550</creator-id>
+    <milestone-due-on type="datetime">2009-08-31T00:00:00+01:00</milestone-due-on>
+    <milestone-id type="integer">41987</milestone-id>
+    <number type="integer">1267</number>
+    <permalink>methods-invoked-within-named_scope-procs-should-respect-the-scope-stack</permalink>
+    <priority type="integer">2</priority>
+    <project-id type="integer">8994</project-id>
+    <state>incomplete</state>
+    <tag>activerecord named_scope patch</tag>
+    <title>Methods invoked within named_scope Procs should respect the scope stack</title>
+    <updated-at type="datetime">2009-07-30T08:13:03+01:00</updated-at>
+    <user-id type="integer">32604</user-id>
+    <user-name>Joseph Palermo</user-name>
+    <creator-name>jvoorhis</creator-name>
+    <assigned-user-name>Michael Koziarski</assigned-user-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/1267</url>
+    <milestone-title>2.3.4</milestone-title>
+    <latest-body>Since Procs passed to a named_scope declaration are executed within the scope of the class, the rules of the scope chain are not applied to queries executed within the Proc. This patch modifies this behavior to apply the scope to methods invoked within the Proc.
+
+See activerecord/test/cases/named_scope_test.rb and activerecord/test/models/topic.rb for examples.</latest-body>
+  </ticket>
+</tickets>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <archived type="boolean">false</archived>
+  <created-at type="datetime">2008-03-29T18:01:21+00:00</created-at>
+  <default-assigned-user-id type="integer" nil="true"></default-assigned-user-id>
+  <default-milestone-id type="integer" nil="true"></default-milestone-id>
+  <description>&lt;h2 style=&quot;font-size: 14px&quot;&gt;Source available from github&lt;/h2&gt;
+
+Repository is at &lt;a href=&quot;http://github.com/rails/rails &quot;&gt;http://github.com/rails/rails&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;
+
+Check out the development master (Edge Rails):&lt;br/&gt;
+
+git clone git://github.com/rails/rails.git&lt;/code&gt;&lt;br/&gt;&lt;br/&gt;
+
+
+&lt;b&gt;Creating or reviewing a patch&lt;/b&gt;
+
+See the &lt;a href=&quot;http://rails.lighthouseapp.com/projects/8994/sending-patches&quot;&gt;contributor guide&lt;/a&gt;.&lt;br/&gt;&lt;br/&gt;
+
+&lt;b&gt;Creating a feature request&lt;/b&gt;
+
+Please don't. If you want a new feature in Rails, you'll have to pull up your sleeves and get busy yourself. Or convince someone else to do it. See the contributor guide on how to get going. But posting them here is just going to lead to ticket root.&lt;br/&gt;&lt;br/&gt;
+
+&lt;b&gt;Creating a bug report&lt;/b&gt;
+
+When creating a bug report, be sure to include as much relevant information as possible. Post the code sample that causes the problem. Preferably, alter the unit tests and show through either changed or added tests how the expected behavior is not occuring.&lt;br/&gt;&lt;br/&gt;
+
+Security vulnerabilities should be reported via an email to security@rubyonrails.org, do not use lighthouse for reporting security vulnerabilities. All content in lighthouse is publicly available as soon as it is posted.  For more information see the &lt;a href=&quot;http://rubyonrails.org/security&quot;&gt;security policy&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;
+
+Then don't get your hopes up. Unless you have a &quot;Code Red, Mission Critical, The World is Coming to an End&quot; kinda bug, you're creating this ticket in the hope that others with the same problem will be able to collaborate with you on solving it. Do not expect that the ticket automatically will see any activity or that others will jump to fix it. Creating a ticket like this is mostly to help yourself start on the path of fixing the problem and for others to sign on to with a &quot;I'm having this problem too&quot;..</description>
+  <description-html>&lt;div&gt;&lt;h2&gt;Source available from github&lt;/h2&gt;
+&lt;p&gt;Repository is at &lt;a href=&quot;http://github.com/rails/rails&quot;&gt;http://github.com/rails/rails&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Check out the development master (Edge Rails):&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;git clone git://github.com/rails/rails.git&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Creating or reviewing a patch&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;See the &lt;a href=&quot;http://rails.lighthouseapp.com/projects/8994/sending-patches&quot;&gt;contributor
+guide&lt;/a&gt;.&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Creating a feature request&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;Please don't. If you want a new feature in Rails, you'll have to
+pull up your sleeves and get busy yourself. Or convince someone
+else to do it. See the contributor guide on how to get going. But
+posting them here is just going to lead to ticket root.&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Creating a bug report&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;When creating a bug report, be sure to include as much relevant
+information as possible. Post the code sample that causes the
+problem. Preferably, alter the unit tests and show through either
+changed or added tests how the expected behavior is not
+occuring.&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Security vulnerabilities should be reported via an email to
+&lt;a href=&quot;mailto:security@rubyonrails.org&quot;&gt;security@rubyonrails.org&lt;/a&gt;, do
+not use lighthouse for reporting security vulnerabilities. All
+content in lighthouse is publicly available as soon as it is
+posted. For more information see the &lt;a href=&quot;http://rubyonrails.org/security&quot;&gt;security policy&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Then don't get your hopes up. Unless you have a &quot;Code Red,
+Mission Critical, The World is Coming to an End&quot; kinda bug, you're
+creating this ticket in the hope that others with the same problem
+will be able to collaborate with you on solving it. Do not expect
+that the ticket automatically will see any activity or that others
+will jump to fix it. Creating a ticket like this is mostly to help
+yourself start on the path of fixing the problem and for others to
+sign on to with a &quot;I'm having this problem too&quot;..&lt;/p&gt;&lt;/div&gt;</description-html>
+  <hidden type="boolean">false</hidden>
+  <id type="integer">8994</id>
+  <license>mit</license>
+  <name>Ruby on Rails</name>
+  <open-tickets-count type="integer">714</open-tickets-count>
+  <permalink>ruby-on-rails</permalink>
+  <public type="boolean">true</public>
+  <send-changesets-to-events type="boolean">true</send-changesets-to-events>
+  <updated-at type="datetime">2009-08-01T03:22:20+01:00</updated-at>
+  <open-states-list>new,open,verified</open-states-list>
+  <closed-states-list>committed,resolved,hold,invalid,duplicate,wontfix,incomplete,stale</closed-states-list>
+  <open-states>new/f17  # You can add comments here
+open/aaa # if you want to.
+verified/aaa</open-states>
+  <closed-states>committed/aaa
+resolved/6A0 # You can customize colors
+hold/EB0     # with 3 or 6 character hex codes
+invalid/A30  # 'A30' expands to 'AA3300'
+duplicate/333
+wontfix/333
+incomplete/a30
+stale/333</closed-states>
+</project>

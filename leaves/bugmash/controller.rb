@@ -1,5 +1,6 @@
 # Controller for the bugmash leaf.
-require 'lighthouse'
+require File.join(File.expand_path(File.dirname(__FILE__)), 'lighthouse', 'lighthouse')
+
 Lighthouse.account = 'rails'
 Lighthouse_Project = 8994
 
@@ -14,6 +15,10 @@ class Controller < Autumn::Leaf
     stem.message "!working 1 - will assign you to the ticket"
     stem.message "!stopworking 1 - will unassign you from the ticket"
     return
+  end
+  
+  def reload_command(stem, sender, reply_to, msg)
+    hot_reload(self)
   end
   
   
@@ -34,19 +39,19 @@ class Controller < Autumn::Leaf
   def status_command(stem, sender, reply_to, msg)
     # Get Status Message
     
-    if Ticket.bug_mashable? msg.to_i
+    if !Ticket.bug_mashable?(msg.to_i)
       stem.message 'This ticket is not bug mashable, please try another'
       return false
     end
 
     # If we're here, it means the ticket is a valid bug masher ticket. 
-    ticket = Ticket.find(:first, :conditions => { :number => msg.to_i })
+    ticket = Ticket.find(:first, :conditions => { :number => msg })
     if ticket
       person_tickets = PeopleTicket.find(:all, :conditions => {:ticket_id => ticket.id })
     
       unless person_tickets.empty?
         returned_string = ''
-        person_tickets.each { |pt| returned_string += pt.person.name + ','}
+        person_tickets.map { |pt| pt.person }.join(", ")
         stem.message returned_string + ' is working on ticket https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
       else
         stem.message 'nobody is working on ticket https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
@@ -99,6 +104,7 @@ class Controller < Autumn::Leaf
     return
   end
   
+  alias_method :work_command, :working_command
   
   # Stop working on a ticket
   def stopworking_command(stem, sender, reply_to, msg)
@@ -127,9 +133,24 @@ class Controller < Autumn::Leaf
     return
   end
   
+  alias_method :stop_command, :stopworking_command
+  
   def get_ticket_command(stem, sender, reply_to, msg)
     t = Ticket.from_lighthouseapp msg
     stem.message t['tag']
+    
+    return
+  end
+  
+  def gimme_command(stem, sender, reply_to, msg)
+    tickets = Lighthouse::Ticket.find(:all, :params => { :q => %{tagged:"bugmash"}, :project_id => 8994 } )
+    puts tickets.size.inspect
+    free = tickets.detect { |t| PeopleTicket.find_by_ticket_id(t.id).nil? }
+    if free
+      stem.message "Ticket ##{free.id} is available for you!"
+    else
+      stem.message "There are no more tickets for you to have!"
+    end
     
     return
   end

@@ -180,16 +180,8 @@ module Autumn
       model_code = nil
       mod = config.leaf(leaf.options[:class], :module)
       leaf.database do
-        Dir.glob("#{AL_ROOT}/leaves/#{leaf.options[:class].snakecase}/models/*.rb").each do |model_file|
-          File.open(model_file, 'r') { |f| model_code = f.read }
-          mod.module_eval model_code
-        end
-        # Need to manually set the table names of the models because we loaded
-        # them inside a module
-        unless $NO_DATABASE
-          # mod.constants.map { |const_name| mod.const_get(const_name) }.select { |const| const.ancestors.include? DataMapper::Resource }.each do |model|
-          #   model.storage_names[leaf.database_name] = model.to_s.demodulize.snakecase.pluralize
-          # end
+        Dir.glob("#{AL_ROOT}/models/*.rb").each do |model_file|
+          mod.module_eval File.read(model_file)
         end
       end
     end

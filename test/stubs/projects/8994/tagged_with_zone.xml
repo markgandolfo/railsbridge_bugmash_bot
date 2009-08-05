@@ -1,0 +1,38 @@
+HTTP/1.1 200 OK
+Server: nginx/0.6.29
+Date: Wed, 05 Aug 2009 08:07:03 GMT
+Content-Type: application/xml; charset=utf-8
+Connection: keep-alive
+Etag: "0f8e6751a85920efe1829a1c086f2d35"
+X-Runtime: 16ms
+Cache-Control: private, max-age=0, must-revalidate
+Content-Length: 1503
+
+<?xml version="1.0" encoding="UTF-8"?>
+<tickets type="array">
+  <ticket>
+    <assigned-user-id type="integer" nil="true"></assigned-user-id>
+    <attachments-count type="integer">0</attachments-count>
+    <closed type="boolean">true</closed>
+    <created-at type="datetime">2009-04-20T13:37:38+01:00</created-at>
+    <creator-id type="integer">18474</creator-id>
+    <milestone-due-on type="datetime" nil="true"></milestone-due-on>
+    <milestone-id type="integer">9903</milestone-id>
+    <number type="integer">2527</number>
+    <permalink>time-columns-are-not-zone-aware</permalink>
+    <priority type="integer">1671</priority>
+    <project-id type="integer">8994</project-id>
+    <state>wontfix</state>
+    <tag>2.3.2 active_record bug in_time_zone time zone</tag>
+    <title>Time columns are not zone aware</title>
+    <updated-at type="datetime">2009-04-22T15:38:29+01:00</updated-at>
+    <user-id type="integer">15783</user-id>
+    <user-name>Geoff Buesing</user-name>
+    <creator-name>Justin Mazzi</creator-name>
+    <url>http://rails.lighthouseapp.com/projects/8994/tickets/2527</url>
+    <milestone-title>2.x</milestone-title>
+    <latest-body>#1095 seems to be the same issue. 
+
+Time columns do not seem to be zone aware. I am storing a schedule and I want to show that time in the users chosen time zone. Changing the time zone with Time.zone does not affect the output of the time. However, if you call it with column_name.in_time_zone, it does work.</latest-body>
+  </ticket>
+</tickets>
