@@ -38,7 +38,10 @@ class Controller < Autumn::Leaf
   #
   def status_command(stem, sender, reply_to, msg)
     # Get Status Message
-    
+    if msg.nil?
+      stem.message "Must specify a ticket ID"
+      return false
+    end
     if !Ticket.bug_mashable?(msg.to_i)
       stem.message 'This ticket is not bug mashable or is not a valid ticket, please try another'
       return false
