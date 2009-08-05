@@ -87,7 +87,7 @@ class Controller < Autumn::Leaf
       puts ticket.id
     
       # Add the person/ticket relationship.
-      pt = PeopleTicket.find_all_by_ticket_id_and_person_id(ticket.id, person.id)
+      pt = PeopleTicket.find_by_ticket_id_and_person_id(ticket.id, person.id)
 
       if !pt.nil?
         stem.message sender[:nick] + ' is already working on ' + 'https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
