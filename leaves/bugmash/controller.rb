@@ -40,19 +40,19 @@ class Controller < Autumn::Leaf
     # Get Status Message
     
     if !Ticket.bug_mashable?(msg.to_i)
-      stem.message 'This ticket is not bug mashable, please try another'
+      stem.message 'This ticket is not bug mashable or is not a valid ticket, please try another'
       return false
     end
 
     # If we're here, it means the ticket is a valid bug masher ticket. 
     ticket = Ticket.find(:first, :conditions => { :number => msg })
     if ticket
-      person_tickets = PeopleTicket.find(:all, :conditions => {:ticket_id => ticket.id })
+      person_tickets = PeopleTicket.find_all_by_ticket_id(ticket.id)
     
       unless person_tickets.empty?
-        returned_string = ''
-        person_tickets.map { |pt| pt.person }.join(", ")
-        stem.message returned_string + ' is working on ticket https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
+        returned_string = person_tickets.map { |pt| pt.person.name }.join(", ")
+        is_or_are = person_tickets.size > 1 ? "are" : "is"
+        stem.message returned_string + " #{is_or_are} working on ticket https://rails.lighthouseapp.com/projects/" + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
       else
         stem.message 'nobody is working on ticket https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
       end
@@ -78,21 +78,18 @@ class Controller < Autumn::Leaf
     if Ticket.bug_mashable? msg.to_i
         
       # Does person exist? If not create them
-      person = Person.find(:first, :conditions => { :name => sender[:nick] })
-      unless person
-        person = Person.create(:name => sender[:nick])
-      end
+      person = Person.find_or_create_by_name(sender[:nick])
     
       # Does the ticket exist? If not, create it
-      ticket = Ticket.find(:first, :conditions => {:number => msg.to_i})
-      unless ticket
-        ticket = Ticket.create(:number => msg.to_i)
-      end
+      ticket = Ticket.find_or_create_by_number(msg)
+      
+      puts person.id
+      puts ticket.id
     
       # Add the person/ticket relationship.
-      pt = PeopleTicket.find(:all, :conditions => {:ticket_id => ticket.id, :person_id => person.id})
+      pt = PeopleTicket.find_all_by_ticket_id_and_person_id(ticket.id, person.id)
 
-      if pt.nil?
+      if !pt.nil?
         stem.message sender[:nick] + ' is already working on ' + 'https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
       else
         pt = PeopleTicket.create(:ticket_id => ticket.id, :person_id => person.id, :state => 'working')
