@@ -145,8 +145,10 @@ class Controller < Autumn::Leaf
   
   def gimme_command(stem, sender, reply_to, msg)
     tickets = Lighthouse::Ticket.find(:all, :params => { :q => %{tagged:"bugmash"}, :project_id => 8994 } )
-    puts tickets.size.inspect
-    free = tickets.detect { |t| PeopleTicket.find_by_ticket_id(t.id).nil? }
+    free = tickets.detect do |t|
+      t = Ticket.find_by_number(t.id)
+      t.nil? || t.people.empty?
+    end
     if free
       stem.message "Ticket ##{free.id} is available for you!"
     else
