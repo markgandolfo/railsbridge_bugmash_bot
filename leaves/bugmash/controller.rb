@@ -96,7 +96,8 @@ class Controller < Autumn::Leaf
         stem.message sender[:nick] + ' is now working on ' + 'https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
       end
     else
-      
+      stem.message 'This ticket is not bug mashable or is not a valid ticket, please try another'
+      return false
     end
     return
   end
