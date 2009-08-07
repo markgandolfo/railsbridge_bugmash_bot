@@ -153,7 +153,7 @@ class Controller < Autumn::Leaf
     tickets = Lighthouse::Ticket.find(:all, :params => { :q => %{tagged:"bugmash"}, :project_id => 8994 } )
     free = tickets.detect do |t|
       t = Ticket.find_by_number(t.id)
-      t.nil? || t.people.empty?
+      (t.nil? || t.people.empty?) && !t.closed?
     end
     if free
       stem.message "Ticket ##{free.id} is available for you! https://rails.lighthouseapp.com/projects/" + Lighthouse_Project.to_s + '/tickets/' + free.id.to_s, reply_to

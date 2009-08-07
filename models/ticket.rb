@@ -28,7 +28,7 @@ class Ticket < ActiveRecord::Base
   def self.bug_mashable? ticket_id
     t = Ticket.from_lighthouseapp ticket_id
     unless t.nil?
-      return t['tag'].to_s.include? 'bugmash' 
+      return t['tag'].to_s.include?('bugmash')
     end
   end
   
