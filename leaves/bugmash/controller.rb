@@ -18,10 +18,17 @@ class Controller < Autumn::Leaf
     return
   end
   
-  def reload_command(stem, sender, reply_to, msg)
-    hot_reload(self)
+  def authorized?(name)
+    ["radar", "mark[oz]"].include?(name.downcase)
   end
   
+  def go_command(stem, sender, reply_to, msg)
+    join_channel(msg) if authorized?(sender[:nick])
+  end
+
+  def leave_command(stem, sender, reply_to, msg)
+    leave_channel(msg) if authorized?(sender[:nick])
+  end
   
   # 
   # Check the status of a ticket
