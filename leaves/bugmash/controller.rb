@@ -131,7 +131,7 @@ class Controller < Autumn::Leaf
     pt = PeopleTicket.find(:first, :conditions => {:ticket_id => ticket.id, :person_id => person.id})
     unless pt.nil?
       pt.destroy
-      stem.message 'You have been removed from https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s, reply_to
+      stem.message "#{sender[:nick]} has stopped working on https://rails.lighthouseapp.com/projects/" + Lighthouse_Project.to_s + "/tickets/" + msg.to_s, reply_to
     else
       stem.message 'You were never assigned to this ticket?', reply_to
     end
@@ -155,7 +155,7 @@ class Controller < Autumn::Leaf
       t.nil? || t.people.empty?
     end
     if free
-      stem.message "Ticket ##{free.id} is available for you!", reply_to
+      stem.message "Ticket ##{free.id} is available for you! https://rails.lighthouseapp.com/projects/" + Lighthouse_Project.to_s + '/tickets/' + free.id.to_s, reply_to
     else
       stem.message "There are no more tickets for you to have!", reply_to
     end
