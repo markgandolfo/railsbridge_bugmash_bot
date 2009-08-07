@@ -92,7 +92,8 @@ class Controller < Autumn::Leaf
       person = Person.find_or_create_by_name(sender[:nick])
     
       # Does the ticket exist? If not, create it
-      ticket = Ticket.find_or_create_by_number(msg)
+      ticket = Ticket.find_by_number(msg)
+      ticket ||= Ticket.create_ticket(Ticket.from_lighthouseapp(msg))
     
       # Add the person/ticket relationship.
       pt = PeopleTicket.find_by_ticket_id_and_person_id(ticket.id, person.id)
