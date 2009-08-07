@@ -85,9 +85,6 @@ class Controller < Autumn::Leaf
     
       # Does the ticket exist? If not, create it
       ticket = Ticket.find_or_create_by_number(msg)
-      
-      puts person.id
-      puts ticket.id
     
       # Add the person/ticket relationship.
       pt = PeopleTicket.find_by_ticket_id_and_person_id(ticket.id, person.id)

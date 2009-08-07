@@ -74,7 +74,7 @@ module Lighthouse
 end
 
 
-Dir[File.join(File.dirname(__FILE__), 'lighthouse/*.rb')].each { |f| require f }
+Dir[File.join(File.dirname(__FILE__), 'lighthouse/*.rb')].sort.each { |f| require f }
 
 module ActiveResource
   class Connection
