@@ -1,8 +1,8 @@
 --- 
 Example: 
-  nick: bugmasher
+  nick: bugmasher2
   leaves: 
   - Bugmash
   rejoin: true
-  channel: "#testingchannel"
+  channel: "#testingchannel2"
   server: irc.freenode.org

@@ -14,6 +14,7 @@ class Controller < Autumn::Leaf
     stem.message "!status 1 - who is working on the ticket"
     stem.message "!working 1 - will assign you to the ticket"
     stem.message "!stopworking 1 - will unassign you from the ticket"
+    stem.message "!gimme - Will give you a ticket that is not being worked on"
     return
   end
   
