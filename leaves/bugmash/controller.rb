@@ -47,11 +47,11 @@ class Controller < Autumn::Leaf
   def status_command(stem, sender, reply_to, msg)
     # Get Status Message
     if msg.nil?
-      stem.message "Must specify a ticket ID"
+      stem.message "Must specify a ticket ID", reply_to
       return false
     end
     if !Ticket.bug_mashable?(msg.to_i)
-      stem.message 'This ticket is not bug mashable or is not a valid ticket, please try another'
+      stem.message 'This ticket is not bug mashable or is not a valid ticket, please try another', reply_to
       return false
     end
 
@@ -63,14 +63,14 @@ class Controller < Autumn::Leaf
       unless person_tickets.empty?
         returned_string = person_tickets.map { |pt| pt.person.name }.join(", ")
         is_or_are = person_tickets.size > 1 ? "are" : "is"
-        stem.message returned_string + " #{is_or_are} working on ticket https://rails.lighthouseapp.com/projects/" + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
+        stem.message returned_string + " #{is_or_are} working on ticket https://rails.lighthouseapp.com/projects/" + Lighthouse_Project.to_s + '/tickets/' + msg.to_s, reply_to
       else
-        stem.message 'nobody is working on ticket https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
+        stem.message 'nobody is working on ticket https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s, reply_to
       end
     
     else
       ticket = Ticket.create(:number => msg.to_i)
-      stem.message 'nobody is working on ticket https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
+      stem.message 'nobody is working on ticket https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s, reply_to
     end
     return
   end
@@ -98,13 +98,13 @@ class Controller < Autumn::Leaf
       pt = PeopleTicket.find_by_ticket_id_and_person_id(ticket.id, person.id)
 
       if !pt.nil?
-        stem.message sender[:nick] + ' is already working on ' + 'https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
+        stem.message sender[:nick] + ' is already working on ' + 'https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s, reply_to
       else
         pt = PeopleTicket.create(:ticket_id => ticket.id, :person_id => person.id, :state => 'working')
-        stem.message sender[:nick] + ' is now working on ' + 'https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
+        stem.message sender[:nick] + ' is now working on ' + 'https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s, reply_to
       end
     else
-      stem.message 'This ticket is not bug mashable or is not a valid ticket, please try another'
+      stem.message 'This ticket is not bug mashable or is not a valid ticket, please try another', reply_to
       return false
     end
     return
@@ -117,7 +117,7 @@ class Controller < Autumn::Leaf
     # Does person exist? If not create them
     person = Person.find(:first, :conditions => { :name => sender[:nick] })
     unless person
-      stem.message 'You were never assigned to this ticket?'
+      stem.message 'You were never assigned to this ticket?', reply_to
       return 
     end
     
@@ -131,9 +131,9 @@ class Controller < Autumn::Leaf
     pt = PeopleTicket.find(:first, :conditions => {:ticket_id => ticket.id, :person_id => person.id})
     unless pt.nil?
       pt.destroy
-      stem.message 'You have been removed from https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s
+      stem.message 'You have been removed from https://rails.lighthouseapp.com/projects/' + Lighthouse_Project.to_s + '/tickets/' + msg.to_s, reply_to
     else
-      stem.message 'You were never assigned to this ticket?'
+      stem.message 'You were never assigned to this ticket?', reply_to
     end
 
     return
@@ -155,9 +155,9 @@ class Controller < Autumn::Leaf
       t.nil? || t.people.empty?
     end
     if free
-      stem.message "Ticket ##{free.id} is available for you!"
+      stem.message "Ticket ##{free.id} is available for you!", reply_to
     else
-      stem.message "There are no more tickets for you to have!"
+      stem.message "There are no more tickets for you to have!", reply_to
     end
     
     return
