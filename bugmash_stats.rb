@@ -11,8 +11,9 @@ a = WWW::Mechanize.new { |agent|
 
 a.get('http://wiki.railsbridge.org/login') do |page|
   user_page = page.form_with(:action => '/login') do |login|
+    password = File.read("password")
     login.field_with(:name => "username").value = "bugmasher"
-    login.field_with(:name => "password").value = "yerrightlikeimgoingtoputmypasswordhere"
+    login.field_with(:name => "password").value = password
   end.submit
 end
 
