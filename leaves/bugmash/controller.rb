@@ -151,16 +151,16 @@ class Controller < Autumn::Leaf
   
   def gimme_command(stem, sender, reply_to, msg)
     tickets = Lighthouse::Ticket.find(:all, :params => { :q => %{tagged:"bugmash"}, :project_id => 8994 } )
-    free = tickets.detect do |ticket|
+    free = tickets.select do |ticket|
       record = Ticket.find_by_number(ticket.id)
       if record
-        record.closed && record.people.empty?
+        !record.closed && record.people.empty?
       else
-        ticket.closed
+        !ticket.closed
       end
     end
-    if free
-      stem.message "Ticket ##{free.id} is available for you! https://rails.lighthouseapp.com/projects/" + Lighthouse_Project.to_s + '/tickets/' + free.id.to_s, reply_to
+    if free = free.rand
+      stem.message "Ticket ##{free.id} - \"#{free.title}\" is available for you! https://rails.lighthouseapp.com/projects/" + Lighthouse_Project.to_s + '/tickets/' + free.id.to_s, reply_to
     else
       stem.message "There are no more tickets for you to have!", reply_to
     end
