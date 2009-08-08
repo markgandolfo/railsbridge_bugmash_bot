@@ -23,7 +23,7 @@ res = a.get("http://wiki.railsbridge.org/projects/railsbridge/wiki/BugMashStats/
     value = ""
     
     for ticket in Ticket.all
-      value << "\nh2. #{ticket.number} - #{ticket.title}\n\n"
+      value << "\nh2. ##{ticket.number} #{"- " + ticket.title if ticket.title}\n\n"
       for people in ticket.people_tickets
         if people.state == "working"
           value << "* #{people.person.name}\n"
