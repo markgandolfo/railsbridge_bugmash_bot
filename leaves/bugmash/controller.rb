@@ -116,9 +116,10 @@ class Controller < Autumn::Leaf
   def me_command(stem, sender, reply_to, msg)
     person = Person.find_by_name(sender[:nick])
     stem.message("I do not know who you are!", sender[:nick]) and return if person.nil?
-    stem.message "You are working on #{person.tickets.size} tickets", sender[:nick]
-    for ticket in person.tickets
-      stem.message "##{ticket.number} - #{ticket.title}", sender[:nick]
+    tickets = PeopleTicket.find_all_by_person_id_and_state(person.id, "working")
+    stem.message "You are working on #{tickets.size} " + (tickets.size > 1 || tickets.size == 0 ? "tickets" : "ticket"), sender[:nick]
+    for ticket in tickets
+      stem.message "##{ticket.ticket.number} - #{ticket.ticket.title}", sender[:nick]
     end
   end
   
