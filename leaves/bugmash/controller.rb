@@ -113,6 +113,15 @@ class Controller < Autumn::Leaf
   
   alias_method :work_command, :working_command
   
+  def me_command(stem, sender, reply_to, msg)
+    person = Person.find_by_name(sender[:nick])
+    stem.message("I do not know who you are!", sender[:nick]) and return if person.nil?
+    stem.message "You are working on #{person.tickets.size} tickets", sender[:nick]
+    for ticket in person.tickets
+      stem.message "##{ticket.number} - #{ticket.title}", sender[:nick]
+    end
+  end
+  
   # Stop working on a ticket
   def stopworking_command(stem, sender, reply_to, msg)
     # Does person exist? If not create them
