@@ -52,6 +52,7 @@ module Lighthouse
     # Sets the API token for all the resources.
     def token=(value)
       resources.each do |klass|
+        
         klass.headers['X-LighthouseToken'] = value
       end
       @token = value

@@ -1,5 +1,6 @@
 module Lighthouse
   class Base < ActiveResource::Base
+    
     def self.inherited(base)
       Lighthouse.resources << base
       class << base

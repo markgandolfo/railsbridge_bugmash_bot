@@ -2,8 +2,10 @@
 require File.join(File.expand_path(File.dirname(__FILE__)), 'lighthouse', 'lighthouse')
 
 Lighthouse.account = 'rails'
+Lighthouse.email = 'lighthouse@bugmash.com'
+Lighthouse.password = 'p6UJfIe6mW'
+Lighthouse::Base.logger = Logger.new("lighthouse.log")
 Lighthouse_Project = 8994
-
 class Controller < Autumn::Leaf
     
   # Typing "!about" displays some basic information about this leaf.
@@ -120,6 +122,28 @@ class Controller < Autumn::Leaf
     stem.message "You are working on #{tickets.size} " + (tickets.size > 1 || tickets.size == 0 ? "tickets" : "ticket"), sender[:nick]
     for ticket in tickets
       stem.message "##{ticket.ticket.number} - #{ticket.ticket.title}", sender[:nick]
+    end
+  end
+  
+  def review_command(stem, sender, reply_to, msg)
+    ticket = Lighthouse::Ticket.find(msg, :params => { :q => %{tagged:"bugmash"}, :project_id => Lighthouse_Project } )
+    if ticket
+      ticket.tags << "bugmash-review"
+      ticket.save_with_tags
+      stem.message "Ticket #{msg} has now been marked for bugmash review."
+    else
+      stem.message "Couldn't find Ticket ##{msg}"
+    end
+  end
+  
+  def unreview_command(stem, sender, reply_to, msg)
+    ticket = Lighthouse::Ticket.find(msg, :params => { :q => %{tagged:"bugmash"}, :project_id => Lighthouse_Project } )
+    if ticket
+      ticket.tags -= "bugmash-review"
+      ticket.save_with_tags
+      stem.message "Ticket #{msg} has now been unmarked for bugmash review."
+    else
+      stem.message "Couldn't find Ticket ##{msg}"
     end
   end
   
