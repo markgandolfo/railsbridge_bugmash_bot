@@ -124,28 +124,28 @@ class Controller < Autumn::Leaf
       stem.message "##{ticket.ticket.number} - #{ticket.ticket.title}", sender[:nick]
     end
   end
-  
-  def review_command(stem, sender, reply_to, msg)
-    ticket = Lighthouse::Ticket.find(msg, :params => { :q => %{tagged:"bugmash"}, :project_id => Lighthouse_Project } )
-    if ticket
-      ticket.tags << "bugmash-review"
-      ticket.save_with_tags
-      stem.message "Ticket #{msg} has now been marked for bugmash review."
-    else
-      stem.message "Couldn't find Ticket ##{msg}"
-    end
-  end
-  
-  def unreview_command(stem, sender, reply_to, msg)
-    ticket = Lighthouse::Ticket.find(msg, :params => { :q => %{tagged:"bugmash"}, :project_id => Lighthouse_Project } )
-    if ticket
-      ticket.tags -= "bugmash-review"
-      ticket.save_with_tags
-      stem.message "Ticket #{msg} has now been unmarked for bugmash review."
-    else
-      stem.message "Couldn't find Ticket ##{msg}"
-    end
-  end
+   #  Commands currently broken
+   # def review_command(stem, sender, reply_to, msg)
+   #   ticket = Lighthouse::Ticket.find(msg, :params => { :q => %{tagged:"bugmash"}, :project_id => Lighthouse_Project } )
+   #   if ticket
+   #     ticket.tags << "bugmash-review"
+   #     ticket.save_with_tags
+   #     stem.message "Ticket #{msg} has now been marked for bugmash review."
+   #   else
+   #     stem.message "Couldn't find Ticket ##{msg}"
+   #   end
+   # end
+   # 
+   # def unreview_command(stem, sender, reply_to, msg)
+   #   ticket = Lighthouse::Ticket.find(msg, :params => { :q => %{tagged:"bugmash"}, :project_id => Lighthouse_Project } )
+   #   if ticket
+   #     ticket.tags -= "bugmash-review"
+   #     ticket.save_with_tags
+   #     stem.message "Ticket #{msg} has now been unmarked for bugmash review."
+   #   else
+   #     stem.message "Couldn't find Ticket ##{msg}"
+   #   end
+   # end
   
   # Stop working on a ticket
   def stopworking_command(stem, sender, reply_to, msg)
