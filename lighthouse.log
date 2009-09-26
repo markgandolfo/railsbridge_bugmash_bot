@@ -1,0 +1,9 @@
+# Logfile created on Sat Sep 26 10:53:22 +1000 2009 by /
+GET http://rails.lighthouseapp.com:80/projects/8994/tickets/.xml?q=tagged%3A%22bugmash%22
+--> 302 Moved Temporarily (133 1595ms)
+GET http://rails.lighthouseapp.com:80/projects/8994/tickets/3218.xml?q=tagged%3A%22bugmash%22
+--> 200 OK (18258 2049ms)
+GET http://rails.lighthouseapp.com:80/projects/8994/tickets/3218.xml?q=tagged%3A%22bugmash%22
+--> 200 OK (18258 1821ms)
+PUT http://rails.lighthouseapp.com:80/projects/8994/tickets/3218.xml
+--> 401 Unauthorized (15 1911ms)

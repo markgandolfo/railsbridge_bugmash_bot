@@ -10,7 +10,7 @@ module Lighthouse
 
     def tags
       attributes['tag'] ||= nil
-      @tags ||= tag.blank? ? [] : parse_with_spaces(tag)
+      @tags ||= tag.split(" ")
     end
 
     def body
